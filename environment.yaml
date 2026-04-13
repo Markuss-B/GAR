@@ -1,0 +1,6 @@
+name: D:\GAR\envs
+channels:
+  - defaults
+dependencies:
+  - pandas
+prefix: D:\GAR\envs
