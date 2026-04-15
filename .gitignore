@@ -1,1 +1,4 @@
 envs/
+__pycache__
+gar.egg-info/
+.vscode/
