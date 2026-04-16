@@ -2,7 +2,7 @@ name: D:\GAR\envs
 channels:
   - defaults
 dependencies:
-  - pandas
-  - pip:
-    - -e .
+  - python=3.12
+  - tensorflow
+  - keras
 prefix: D:\GAR\envs

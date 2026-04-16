@@ -1,8 +1,10 @@
 import numpy as np
 
-def split_by_trainer(x, y, trainer_ids, train_ratio=0.8, val_ratio=0.2, seed=42):
+def split_by_trainer(x, y, meta, train_ratio=0.8, val_ratio=0.2, seed=42):
     """Split data into train/val/test sets by trainer ID."""
     rng = np.random.RandomState(seed)
+
+    trainer_ids = np.array([m["trainer"] for m in meta])
     
     trainers = np.unique(trainer_ids)
     shuffled = rng.permutation(trainers)
@@ -16,6 +18,8 @@ def split_by_trainer(x, y, trainer_ids, train_ratio=0.8, val_ratio=0.2, seed=42)
     
     # Split train further into train/val
     train_idxs = np.where(train_mask)[0]
+    test_idxs = np.where(test_mask)[0]
+
     rng.shuffle(train_idxs)
     
     n = len(train_idxs)
@@ -25,7 +29,12 @@ def split_by_trainer(x, y, trainer_ids, train_ratio=0.8, val_ratio=0.2, seed=42)
     val_idx = train_idxs[split:]
     
     return (
-        x[train_idx], y[train_idx],
-        x[val_idx], y[val_idx],
-        x[test_mask], y[test_mask]
+        x[train_idx], y[train_idx], [meta[i] for i in train_idx],
+        x[val_idx], y[val_idx], [meta[i] for i in val_idx],
+        x[test_mask], y[test_mask], [meta[i] for i in test_idxs]
     )
+
+def setup_binary_classification(y, activity_mapping, non_lifting_activities):
+    # binary labels: 1 = lifting (any activity != 0), 0 = not lifting (activity == 0)
+    binary_y = np.array([0 if activity_mapping[activity] in non_lifting_activities.values() else 1 for activity in y])
+    return binary_y

@@ -40,6 +40,7 @@ class MyoGymLoader:
             29: "Car Drivers",
             30: "Lying Rear Delt Raise"
         }
+        self.non_lifting_activities = {0: "No activity identified"}  # Only "No activity identified" is non-lifting
 
     def load_data(self):
         if not os.path.exists(self.mat_path):
@@ -87,3 +88,6 @@ class MyoGymLoader:
         data_df.drop(columns=["time_acc", "time_gyr"], inplace=True)
         
         return data_df, self.ACTIVITY_MAPPING
+    
+    def get_non_lifting_activities(self):
+        return self.non_lifting_activities

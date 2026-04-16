@@ -14,12 +14,12 @@ def create_windows(df, window_size = 100, step = 50):
     Returns:
     - x: (num_windows, T, 6)
     - y: (num_windows,) majority label per window
-    - trainer_ids: (num_windows,) trainer per window
-    - timestamps: (num_windows, T) timestamps per window
+    - meta: list of dicts with metadata (trainer, original indices)
     """
     features = ["acc_x", "acc_y", "acc_z", "gyr_x", "gyr_y", "gyr_z"]
 
-    x, y, trainer_ids, timestamps = [], [], [], []
+    x, y = [], []
+    meta = []
 
     for trainer in df["trainer"].unique():
         sub = df[df["trainer"] == trainer]
@@ -27,6 +27,8 @@ def create_windows(df, window_size = 100, step = 50):
         data = sub[features].values
         labels = sub["activity"].values
         times = sub["time"].values
+
+        original_indices = sub.index.values
 
         N = len(sub)
 
@@ -36,14 +38,15 @@ def create_windows(df, window_size = 100, step = 50):
             window = data[start:end]
             label_window = labels[start:end]
             label = np.bincount(label_window).argmax()
-            time_window = times[start:end]
 
             x.append(window)
             y.append(label)
-            trainer_ids.append(trainer)
-            timestamps.append(time_window)
+            meta.append({
+                "trainer": trainer,
+                "original_indices": original_indices[start:end]
+            })
     
-    return np.array(x), np.array(y), np.array(trainer_ids), np.array(timestamps)
+    return np.array(x), np.array(y), meta
 
 def get_random_windows(x, y, t, timestamps, activity_mapping=None, activity=None, n=3, seed=123):
     """Get n random windows from the dataset, optionally filtered by activity."""

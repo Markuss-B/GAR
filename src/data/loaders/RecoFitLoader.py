@@ -7,6 +7,27 @@ class RecoFitLoader:
     def __init__(self, mat_dir, transform_units=False):
         self.mat_dir = mat_dir
         self.transform_units = transform_units
+        self.ACTIVITY_MAPPING = {}
+        self.non_lifting_activities = {
+            "<Initial Activity>",
+            "Arm Band Adjustment",
+            "Arm straight up",
+            "Device on Table",
+            "Dynamic Stretch (at your own pace)",
+            "Invalid",
+            "Non-Exercise",
+            "Note",
+            "Repetitive Stretching",
+            "Rest",
+            "Running (treadmill)",
+            "Static Stretch (at your own pace)",
+            "Static stretch",
+            "Tap IMU Device",
+            "Tap Left Device",
+            "Tap Right Device",
+            "Unknown",
+            "Walk"
+        }
 
     def load_data(self):
         if not os.path.exists(self.mat_dir):
@@ -64,6 +85,10 @@ class RecoFitLoader:
         # Build activity index and mapping
         activity_index = {act: i for i, act in enumerate(sorted(data_df["activity"].unique()))}
         data_df["activity"] = data_df["activity"].map(activity_index).astype("int32")
-        ACTIVITY_MAPPING = {v: str(k) for k, v in activity_index.items()}
+        self.ACTIVITY_MAPPING = {v: str(k) for k, v in activity_index.items()}
         
-        return data_df, ACTIVITY_MAPPING
+        return data_df, self.ACTIVITY_MAPPING
+    
+    def get_non_lifting_activities(self):
+        # Return the list of non-lifting activities based on the mapping
+        return {idx: name for idx, name in self.ACTIVITY_MAPPING.items() if name in self.non_lifting_activities}
