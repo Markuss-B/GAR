@@ -1,0 +1,56 @@
+{
+    "phoneStartTimestamp": 1776670910347,
+    "phoneEndTimestamp": 1776671876450,
+    "events": [
+        {
+            "name": "Crunches",
+            "startTime": 1776671802566,
+            "endTime": 1776671833190
+        },
+        {
+            "name": "Dumbbell Rows",
+            "startTime": 1776671672141,
+            "endTime": 1776671707282
+        },
+        {
+            "name": "Push-ups",
+            "startTime": 1776671581882,
+            "endTime": 1776671602628
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1776671419298,
+            "endTime": 1776671459057
+        },
+        {
+            "name": "Overhead Extensions",
+            "startTime": 1776671325537,
+            "endTime": 1776671352028
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1776671278835,
+            "endTime": 1776671307844
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1776671154887,
+            "endTime": 1776671179052
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1776671110986,
+            "endTime": 1776671137936
+        },
+        {
+            "name": "Stiff-Leg Deadlifts",
+            "startTime": 1776671019878,
+            "endTime": 1776671059820
+        },
+        {
+            "name": "Goblet Squats",
+            "startTime": 1776670943875,
+            "endTime": 1776670967594
+        }
+    ]
+}

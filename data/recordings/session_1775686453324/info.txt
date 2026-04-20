@@ -1,2 +1,0 @@
-start_time=1775686454963
-phone_timestamp=1775686453324
