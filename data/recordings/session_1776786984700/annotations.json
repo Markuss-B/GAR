@@ -1,0 +1,126 @@
+{
+    "phoneStartTimestamp": 1776786984700,
+    "phoneEndTimestamp": 1776791150815,
+    "events": [
+        {
+            "name": "Treadmill Running",
+            "startTime": 1776790423233,
+            "endTime": 1776791046366
+        },
+        {
+            "name": "Plank",
+            "startTime": 1776790134405,
+            "endTime": 1776790167576
+        },
+        {
+            "name": "Plank",
+            "startTime": 1776789906744,
+            "endTime": 1776789968361
+        },
+        {
+            "name": "Side Crunches",
+            "startTime": 1776789742140,
+            "endTime": 1776789769413
+        },
+        {
+            "name": "Crunches",
+            "startTime": 1776789696723,
+            "endTime": 1776789734216
+        },
+        {
+            "name": "Stiff-Leg Deadlifts",
+            "startTime": 1776789461171,
+            "endTime": 1776789510425
+        },
+        {
+            "name": "Stiff-Leg Deadlifts",
+            "startTime": 1776789326365,
+            "endTime": 1776789369915
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1776789157970,
+            "endTime": 1776789191443
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1776789019308,
+            "endTime": 1776789049704
+        },
+        {
+            "name": "Bench Press",
+            "startTime": 1776788895557,
+            "endTime": 1776788923686
+        },
+        {
+            "name": "Bench Press",
+            "startTime": 1776788741240,
+            "endTime": 1776788764061
+        },
+        {
+            "name": "Bench Press",
+            "startTime": 1776788645562,
+            "endTime": 1776788664892
+        },
+        {
+            "name": "Bench Press",
+            "startTime": 1776788571897,
+            "endTime": 1776788589290
+        },
+        {
+            "name": "Row Machine",
+            "startTime": 1776788359748,
+            "endTime": 1776788395208
+        },
+        {
+            "name": "Row Machine",
+            "startTime": 1776788204108,
+            "endTime": 1776788220575
+        },
+        {
+            "name": "Row Machine",
+            "startTime": 1776788135215,
+            "endTime": 1776788158652
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1776788029405,
+            "endTime": 1776788056151
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1776787951209,
+            "endTime": 1776787976850
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1776787887493,
+            "endTime": 1776787912048
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1776787731904,
+            "endTime": 1776787752435
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1776787640505,
+            "endTime": 1776787666574
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1776787565105,
+            "endTime": 1776787592334
+        },
+        {
+            "name": "Goblet Squats",
+            "startTime": 1776787416874,
+            "endTime": 1776787439380
+        },
+        {
+            "name": "Goblet Squats",
+            "startTime": 1776787242473,
+            "endTime": 1776787282926
+        }
+    ]
+}

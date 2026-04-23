@@ -1,0 +1,86 @@
+{
+    "phoneStartTimestamp": 1776875240569,
+    "phoneEndTimestamp": 1776880784214,
+    "events": [
+        {
+            "name": "Leg Raises",
+            "startTime": 1776880152175,
+            "endTime": 1776880176705
+        },
+        {
+            "name": "Leg Raises",
+            "startTime": 1776879772841,
+            "endTime": 1776879798784
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1776879436952,
+            "endTime": 1776879469674
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1776879174925,
+            "endTime": 1776879207276
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1776878946710,
+            "endTime": 1776878977428
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1776878740671,
+            "endTime": 1776878773951
+        },
+        {
+            "name": "Hammer Curls",
+            "startTime": 1776878497676,
+            "endTime": 1776878533775
+        },
+        {
+            "name": "Hammer Curls",
+            "startTime": 1776878255442,
+            "endTime": 1776878293876
+        },
+        {
+            "name": "Straight Arm Lat Pulldowns",
+            "startTime": 1776877891797,
+            "endTime": 1776877945009
+        },
+        {
+            "name": "Straight Arm Lat Pulldowns",
+            "startTime": 1776877700308,
+            "endTime": 1776877744508
+        },
+        {
+            "name": "Dumbell Chest Flys",
+            "startTime": 1776877506149,
+            "endTime": 1776877555227
+        },
+        {
+            "name": "Dumbell Chest Flys",
+            "startTime": 1776877262476,
+            "endTime": 1776877305473
+        },
+        {
+            "name": "Romanian Deadlifts",
+            "startTime": 1776876875310,
+            "endTime": 1776876936275
+        },
+        {
+            "name": "Romanian Deadlifts",
+            "startTime": 1776876654860,
+            "endTime": 1776876695432
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1776876219270,
+            "endTime": 1776876269105
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1776875869172,
+            "endTime": 1776875916212
+        }
+    ]
+}
