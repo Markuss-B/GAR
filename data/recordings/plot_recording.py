@@ -6,7 +6,7 @@ import pandas as pd
 def plot_recording_with_predictions(data):
     fig, (ax1, ax2, ax3) = plt.subplots(3, 1, figsize=(16, 12), sharex=True)
 
-    time = data["synthetic_time_ms"]
+    time = data["timestamp"]
 
     # --- Plot 1: Accelerometer data ---
     ax1.plot(time, data['accel_x'], label='accel_x', alpha=0.7)
@@ -38,11 +38,12 @@ def plot_recording_with_predictions(data):
 
     # --- Plot 3: Predictions ---
     ax3.plot(time, data['prediction_float'], label='Predictions', color='black', linewidth=1.5, alpha=0.7)
-    ax3.plot(time, data['prediction_binary'], label='Exercise/ noexercise', color='red', linewidth=1.5, alpha=0.4)
-    ax3.axhline(y=0.5, color='red', linestyle='--', label='threshold (0.5)')
+    ax3.plot(time, data['prediction_binary'], label='>=0.5 = Exercise', color='red', linewidth=1.5, alpha=0.4)
+    ax3.axhline(y=0.5, color='red', linestyle='--', label='Threshold = 0.5')
     ax3.set_ylabel('Probability')
     ax3.set_xlabel('Time (ms)')
     ax3.set_ylim([-0.1, 1.1])
+    ax3.legend(loc='upper right', fontsize=8)
     ax3.grid(True, alpha=0.3)
 
     # --- Overlay Event Durations ---
@@ -51,7 +52,7 @@ def plot_recording_with_predictions(data):
     event_changes = event_col != event_col.shift()
     data['event_group'] = event_changes.cumsum()
 
-    # 2. Map unique events to colors (FIXED DEPRECATION)
+    # 2. Map unique events to colors
     unique_events = [e for e in event_col.unique() if e != 'None']
     
     # Use the new recommended way to get the colormap
@@ -59,28 +60,38 @@ def plot_recording_with_predictions(data):
     event_to_color = {name: cmap(i % 10) for i, name in enumerate(unique_events)}
 
     # 3. Iterate through each contiguous block
+    event_loc_up = True
     for _, group in data.groupby('event_group'):
         evt_name = group['event'].iloc[0]
         
         if pd.isna(evt_name) or evt_name == 'None':
             continue
             
-        t_start = group['synthetic_time_ms'].iloc[0]
-        t_end = group['synthetic_time_ms'].iloc[-1]
+        t_start = group['timestamp'].iloc[0]
+        t_end = group['timestamp'].iloc[-1]
         color = event_to_color[evt_name]
 
         for ax in [ax1, ax2, ax3]:
             ax.axvspan(t_start, t_end, color=color, alpha=0.15)
             
             if ax == ax1:
-                ax1.text((t_start + t_end) / 2, ax1.get_ylim()[1], evt_name, 
-                        ha='center', va='bottom', color=color, fontweight='bold', fontsize=9)
+                if event_loc_up == True:
+                    loc = 0
+                    va = 'bottom'
+                    event_loc_up = False
+                else:
+                    loc = 1
+                    va = 'top'
+                    event_loc_up = True
+
+                ax1.text((t_start + t_end) / 2, ax1.get_ylim()[loc], evt_name, 
+                        ha='center', va=va, color=color, fontweight='bold', fontsize=9)
 
     plt.tight_layout()
     plt.show()
 
 def main():
-    path = "session_1776670910347"
+    path = "session_1776938763711"
 
     df = pd.read_csv(f"{path}/combined.csv")
 

@@ -39,48 +39,103 @@ def combine_accel_gyro(accel, gyro):
     return combined
 
 def add_annotations_to_combined(combined_accel_gyro, annotations, info):
-    # 1. Create synthetic time for IMU (assuming 50Hz = 20ms intervals)
-    synthetic_time_ms = np.arange(len(combined_accel_gyro)) * 20
-    combined_accel_gyro['synthetic_time_ms'] = synthetic_time_ms
+    # Convert events to watch time
+    events = convert_events_to_imu_time(annotations, info, combined_accel_gyro)
 
-    # 2. Calculate offset between phone and watch start times
-    phone_start_timestamp = annotations["phoneStartTimestamp"]
-    watch_start_timestamp = int(info[0].split('=')[1])
-    phone_watch_offset_ms = round((phone_start_timestamp - watch_start_timestamp) / 20) * 20
+    # Add event annotations to your combined dataframe
+    combined_accel_gyro = add_events_to_combined(combined_accel_gyro, events)
 
-    # 3. Convert events to synthetic time
-    events_synthetic = []
+    return combined_accel_gyro, events
+
+def convert_events_to_imu_time(annotations, info, combined, linear=False):
+    phone_start = annotations["phoneStartTimestamp"]
+    phone_end = annotations["phoneEndTimestamp"]
+
+    watch_start = int(info[0].split('=')[1])
+    watch_end = int(info[2].split('=')[1])
+
+    imu_start = combined['timestamp'].iloc[0]  # nanoseconds
+
+    if linear:
+        # phone to watch (linear)
+        a = (watch_end - watch_start) / (phone_end - phone_start)
+        b = watch_start - a * phone_start
+    else:
+        offset = phone_start - watch_start
+
+    events_imu = []
     for event in annotations["events"]:
-        # Get event times relative to phone start
-        event_start_rel = round((event['startTime'] - phone_start_timestamp) / 20) * 20
-        event_end_rel = round((event['endTime'] - phone_start_timestamp) / 20) * 20
-        
-        # Adjust for phone-watch offset
-        # If phone started before watch (offset > 0), subtract it
-        event_start_synthetic = event_start_rel - phone_watch_offset_ms
-        event_end_synthetic = event_end_rel - phone_watch_offset_ms
-        
-        events_synthetic.append({
-            'name': event['name'],
-            'start_time_synthetic': event_start_synthetic,
-            'end_time_synthetic': event_end_synthetic,
-            'original_start': event['startTime'],
-            'original_end': event['endTime']
+        # phone to watch wall time
+        if linear:
+            start_watch = a * event["startTime"] + b
+            end_watch = a * event["endTime"] + b
+        else:
+            start_watch = event['startTime'] - offset
+            end_watch = event['endTime'] - offset
+
+        # watch wall to imu boot time
+        start_imu = imu_start + (start_watch - watch_start) * 1_000_000
+        end_imu = imu_start + (end_watch - watch_start) * 1_000_000
+
+        events_imu.append({
+            "name": event["name"],
+            "start_time": start_imu,
+            "end_time": end_imu
         })
 
-    # sort events by synthetic start time
-    events_synthetic.sort(key=lambda x: x['start_time_synthetic'])
+    events_imu.sort(key=lambda x: x["start_time"])
 
-    # 4. Add event annotations to your combined dataframe
-    combined_accel_gyro['event'] = None
-    for event in events_synthetic:
-        mask = (combined_accel_gyro['synthetic_time_ms'] >= event['start_time_synthetic']) & \
-            (combined_accel_gyro['synthetic_time_ms'] <= event['end_time_synthetic'])
-        combined_accel_gyro.loc[mask, 'event'] = event['name']
+    return events_imu
 
-    return combined_accel_gyro, events_synthetic
+def convert_events_to_watch_time(annotations, info, linear=False):
+    phone_start = annotations["phoneStartTimestamp"]
+    phone_end = annotations["phoneEndTimestamp"]
+
+    watch_start = int(info[0].split('=')[1])
+    watch_end = int(info[2].split('=')[1])
+
+    if linear:
+        # Compute linear mapping parameters
+        a = (watch_end - watch_start) / (phone_end - phone_start)
+        b = watch_start - a * phone_start
+    else:
+        offset = phone_start - watch_start
+
+    events_watch = []
+    for event in annotations["events"]:
+        if linear:
+            start_watch = a * event["startTime"] + b
+            end_watch = a * event["endTime"] + b
+        else:
+            start_watch = event['startTime'] - offset
+            end_watch = event['endTime'] - offset
+
+        events_watch.append({
+            "name": event["name"],
+            "start_watch": start_watch,
+            "end_watch": end_watch
+        })
+
+    events_watch.sort(key=lambda x: x["start_watch"])
+
+    return events_watch
+
+def add_events_to_combined(combined, events_watch):
+    combined['event'] = None
+
+    for event in events_watch:
+        mask = (
+            (combined['timestamp'] >= event['start_time']) &
+            (combined['timestamp'] <= event['end_time'])
+        )
+        combined.loc[mask, 'event'] = event['name']
+
+    return combined
 
 def add_predictions_to_combined(combined, classification):
+    # problem this creates: At time 2.5s is displayed a prediction that was only computed at 4s
+    # This shows model centric view
+
     combined['prediction_float'] = np.nan
     combined['prediction_binary'] = np.nan
 
@@ -92,11 +147,14 @@ def add_predictions_to_combined(combined, classification):
 
     return combined
 
+# def add_prediction_signals(combined, classification):
+    
+
 def save(dataframe, path):
     dataframe.to_csv(f"{path}/combined.csv", index=False)
 
 def main():
-    path = "session_1776670910347"
+    path = "session_1776938763711"
 
     accel, gyro, classification, annotations, info = load_recording(path)
     combined_accel_gyro = combine_accel_gyro(accel, gyro)

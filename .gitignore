@@ -3,3 +3,4 @@ __pycache__
 gar.egg-info/
 .vscode/
 data/processed/
+data/recordings/participants.txt
