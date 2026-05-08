@@ -3,11 +3,6 @@
     "phoneEndTimestamp": 1776791150815,
     "events": [
         {
-            "name": "Treadmill Running",
-            "startTime": 1776790423233,
-            "endTime": 1776791046366
-        },
-        {
             "name": "Plank",
             "startTime": 1776790134405,
             "endTime": 1776790167576
@@ -16,11 +11,6 @@
             "name": "Plank",
             "startTime": 1776789906744,
             "endTime": 1776789968361
-        },
-        {
-            "name": "Side Crunches",
-            "startTime": 1776789742140,
-            "endTime": 1776789769413
         },
         {
             "name": "Crunches",
