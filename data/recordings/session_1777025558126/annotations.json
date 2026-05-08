@@ -1,0 +1,86 @@
+{
+    "phoneStartTimestamp": 1777025558126,
+    "phoneEndTimestamp": 1777029986857,
+    "events": [
+        {
+            "name": "Crunches",
+            "startTime": 1777029561276,
+            "endTime": 1777029618791
+        },
+        {
+            "name": "Crunches",
+            "startTime": 1777029342154,
+            "endTime": 1777029411026
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1777029205690,
+            "endTime": 1777029246430
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1777029033102,
+            "endTime": 1777029092356
+        },
+        {
+            "name": "Dumbbell Bench Press",
+            "startTime": 1777028806448,
+            "endTime": 1777028862603
+        },
+        {
+            "name": "Dumbbell Bench Press",
+            "startTime": 1777028657015,
+            "endTime": 1777028718850
+        },
+        {
+            "name": "Lat Pulldowns",
+            "startTime": 1777028004304,
+            "endTime": 1777028054617
+        },
+        {
+            "name": "Lat Pulldowns",
+            "startTime": 1777027863038,
+            "endTime": 1777027949597
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1777027323233,
+            "endTime": 1777027364370
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1777027225509,
+            "endTime": 1777027263033
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1777027116646,
+            "endTime": 1777027145880
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1777027043253,
+            "endTime": 1777027075899
+        },
+        {
+            "name": "Lunges",
+            "startTime": 1777026434923,
+            "endTime": 1777026487363
+        },
+        {
+            "name": "Lunges",
+            "startTime": 1777026267182,
+            "endTime": 1777026327918
+        },
+        {
+            "name": "Goblet Squats",
+            "startTime": 1777025938611,
+            "endTime": 1777025958129
+        },
+        {
+            "name": "Goblet Squats",
+            "startTime": 1777025874697,
+            "endTime": 1777025899059
+        }
+    ]
+}
