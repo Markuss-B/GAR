@@ -76,10 +76,17 @@ class MyoGymLoader:
         
         # Concatenate raw data and labels
         data_df = pd.concat([raw_data, label_data], axis=1)
-        
+
         # Sort and remove duplicates
         data_df = data_df.sort_values(by=['trainer', 'time_acc'], ascending=True)
         data_df = data_df.drop_duplicates()
+
+        # # Check how many hours are lost to duplicates
+        # raw_count = len(datamat["raw_data"])
+        # clean_count = len(data_df)
+        # lost_seconds = (raw_count - clean_count) / 50
+
+        # print(f"Hours lost to duplicates/cleaning: {lost_seconds/3600:.2f}")
         
         # Create synthetic timestamp and remove sensor times
         fq = 50  # Assumed frequency from notebook
