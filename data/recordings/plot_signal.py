@@ -46,7 +46,7 @@ def plot_signal(classification, events):
     plt.show()
 
 def main():
-    path = "session_1776938763711"
+    path = "session_1777394359098"
     accel, gyro, classification, annotation, info = load_recording(path)
     events_watch_time = convert_events_to_watch_time(annotation, info)
     #classification['prediction_binary'] = apply_state_machine(classification, start_buffer=2, end_buffer=3)

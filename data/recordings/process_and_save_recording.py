@@ -154,7 +154,7 @@ def save(dataframe, path):
     dataframe.to_csv(f"{path}/combined.csv", index=False)
 
 def main():
-    path = "session_1776938763711"
+    path = "session_1777462103399"
 
     accel, gyro, classification, annotations, info = load_recording(path)
     combined_accel_gyro = combine_accel_gyro(accel, gyro)

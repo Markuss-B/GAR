@@ -98,7 +98,7 @@ def plot_multiple(strategies, events):
     plt.show()
 
 def main():
-    path = "session_1776875240569"
+    path = "session_1777394359098"
     accel, gyro, classification, annotation, info = load_recording(path)
 
     events_watch_time = convert_events_to_watch_time(annotation, info)

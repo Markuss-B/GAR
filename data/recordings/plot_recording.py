@@ -16,7 +16,7 @@ def plot_recording_with_predictions(data):
     accel_data = data[['accel_x', 'accel_y', 'accel_z']].values
     accel_min, accel_max = np.percentile(accel_data, [1, 99])
     accel_range = accel_max - accel_min
-    ax1.set_ylim([accel_min - 0.5*accel_range, accel_max + 0.5*accel_range])
+    ax1.set_ylim([accel_min - 0.8*accel_range, accel_max + 0.8*accel_range])
     ax1.set_ylabel('Acceleration (m/s²)')
     ax1.set_title('Accelerometer Data')
     ax1.legend(loc='upper right', fontsize=8)
@@ -30,7 +30,7 @@ def plot_recording_with_predictions(data):
     gyro_data = data[['gyro_x', 'gyro_y', 'gyro_z']].values
     gyro_min, gyro_max = np.percentile(gyro_data, [1, 99])
     gyro_range = gyro_max - gyro_min
-    ax2.set_ylim([gyro_min - 0.5*gyro_range, gyro_max + 0.5*gyro_range])
+    ax2.set_ylim([gyro_min - 0.8*gyro_range, gyro_max + 0.8*gyro_range])
     ax2.set_ylabel('Gyroscope (rad/s)')
     ax2.set_title('Gyroscope Data')
     ax2.legend(loc='upper right', fontsize=8)
@@ -91,7 +91,7 @@ def plot_recording_with_predictions(data):
     plt.show()
 
 def main():
-    path = "session_1776938763711"
+    path = "session_1777462103399"
 
     df = pd.read_csv(f"{path}/combined.csv")
 
