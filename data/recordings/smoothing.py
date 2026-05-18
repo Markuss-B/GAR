@@ -40,6 +40,31 @@ def apply_state_machine(df, start_buffer=3, end_buffer=5):
         smoothed[i] = current_state
     return smoothed
 
+def apply_inertia_strategy(clf, entry_threshold=2, max_inertia=15):
+    preds = clf['prediction_binary'].values
+    smoothed = np.zeros_like(preds)
+    
+    inertia = 0
+    is_active = False
+    
+    for i in range(len(preds)):
+        if preds[i] == 1:
+            inertia = min(inertia + 1, max_inertia)
+        else:
+            inertia = max(inertia - 1, 0)
+            
+        # Entry Logic
+        if not is_active and inertia >= entry_threshold:
+            is_active = True
+        
+        # Exit Logic: Must hit 0 to exit
+        if is_active and inertia == 0:
+            is_active = False
+            
+        smoothed[i] = 1 if is_active else 0
+        
+    return smoothed
+
 def plot_signal_on_axis(ax, classification, events, title=""):
     df_class = classification
     df_events = pd.DataFrame(events)
@@ -120,11 +145,15 @@ def main():
     hyst_df_1_3 = classification.copy()
     hyst_df_1_3['prediction_binary'] = apply_state_machine(classification, start_buffer=1, end_buffer=3)
 
+    inertia = classification.copy()
+    inertia["prediction_binary"] = apply_inertia_strategy(inertia, entry_threshold=2, max_inertia=15)
+
     strategies = [
         ("raw", raw_df),
         ("median", median_df),
         ("state_machine s=2 e=3", hyst_df_2_3),
-        ("state_machine s=1 e=3", hyst_df_1_3)
+        #("state_machine s=1 e=3", hyst_df_1_3),
+        ("inertia", inertia)
     ]
 
     plot_multiple(strategies, filtered_events)
