@@ -185,6 +185,8 @@ if __name__ == "__main__":
         normalization_strategy=None,
         train_ratio=0.8,
         val_ratio=0.2,
+        window_size = 100,
+        window_step = 50,
         output_dir="D:/GAR/data/processed",
     )
     
