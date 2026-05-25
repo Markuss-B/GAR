@@ -1,8 +1,15 @@
-name: D:\GAR\envs
+name: d:\GAR\envs
 channels:
   - defaults
 dependencies:
   - python=3.12
   - tensorflow
   - keras
-prefix: D:\GAR\envs
+  - pandas
+  - scipy
+  - ipykernel
+  - matplotlib
+  - scikit-learn
+  - jinja2
+  - seaborn
+prefix: d:\GAR\envs
