@@ -128,7 +128,7 @@ def main():
         default=str(root / "data" / "datasets" / "RecoFit"),
         help="Path to RecoFit dataset directory",
     )
-    parser.add_argument("--trainer-left", type=int, default=2, help="Trainer ID for MyoGym")
+    parser.add_argument("--trainer-left", type=int, default=7, help="Trainer ID for MyoGym")
     parser.add_argument("--activity-left", type=int, default=11, help="Activity ID for MyoGym")
     parser.add_argument("--trainer-right", type=int, default=25, help="Trainer ID for RecoFit")
     parser.add_argument("--activity-right", type=int, default=39, help="Activity ID for RecoFit")
@@ -141,8 +141,8 @@ def main():
 
     from data.loaders import MyoGymLoader, RecoFitLoader
 
-    myogym_loader = MyoGymLoader(args.myogym_path)
-    recofit_loader = RecoFitLoader(args.recofit_path)
+    myogym_loader = MyoGymLoader(args.myogym_path, transform_units=True)
+    recofit_loader = RecoFitLoader(args.recofit_path, transform_units=True)
     df_left, mapping_left = myogym_loader.load_data()
     df_right, mapping_right = recofit_loader.load_data()
 
