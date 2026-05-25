@@ -1,0 +1,96 @@
+{
+    "phoneStartTimestamp": 1779608056714,
+    "phoneEndTimestamp": 1779611620026,
+    "events": [
+        {
+            "name": "Leg Raises",
+            "startTime": 1779611542769,
+            "endTime": 1779611565261
+        },
+        {
+            "name": "Leg Raises",
+            "startTime": 1779611391015,
+            "endTime": 1779611418059
+        },
+        {
+            "name": "Barbell Overhead Press",
+            "startTime": 1779611182842,
+            "endTime": 1779611209469
+        },
+        {
+            "name": "Barbell Overhead Press",
+            "startTime": 1779611055893,
+            "endTime": 1779611096123
+        },
+        {
+            "name": "Cable Rows",
+            "startTime": 1779610885630,
+            "endTime": 1779610912526
+        },
+        {
+            "name": "Cable Rows",
+            "startTime": 1779610731468,
+            "endTime": 1779610765186
+        },
+        {
+            "name": "Cable Rows",
+            "startTime": 1779610698426,
+            "endTime": 1779610716079
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1779610534378,
+            "endTime": 1779610568130
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1779610418134,
+            "endTime": 1779610459910
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1779610400150,
+            "endTime": 1779610410922
+        },
+        {
+            "name": "Preacher Curls",
+            "startTime": 1779610105660,
+            "endTime": 1779610137767
+        },
+        {
+            "name": "Preacher Curls",
+            "startTime": 1779609965986,
+            "endTime": 1779610000491
+        },
+        {
+            "name": "Incline Dumbbell Bench Press",
+            "startTime": 1779609655269,
+            "endTime": 1779609687335
+        },
+        {
+            "name": "Incline Dumbbell Bench Press",
+            "startTime": 1779609425057,
+            "endTime": 1779609461271
+        },
+        {
+            "name": "Deadlifts",
+            "startTime": 1779609144884,
+            "endTime": 1779609176080
+        },
+        {
+            "name": "Deadlifts",
+            "startTime": 1779608972177,
+            "endTime": 1779609002588
+        },
+        {
+            "name": "Barbell Squats",
+            "startTime": 1779608677244,
+            "endTime": 1779608711190
+        },
+        {
+            "name": "Barbell Squats",
+            "startTime": 1779608503251,
+            "endTime": 1779608530055
+        }
+    ]
+}

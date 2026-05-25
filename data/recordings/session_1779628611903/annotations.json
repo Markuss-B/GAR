@@ -1,0 +1,121 @@
+{
+    "phoneStartTimestamp": 1779628611903,
+    "phoneEndTimestamp": 1779633998614,
+    "events": [
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1779633450217,
+            "endTime": 1779633485886
+        },
+        {
+            "name": "Dumbbell Lateral Raises",
+            "startTime": 1779633327750,
+            "endTime": 1779633360123
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1779633196233,
+            "endTime": 1779633242867
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1779633007031,
+            "endTime": 1779633058487
+        },
+        {
+            "name": "Tricep Pushdowns",
+            "startTime": 1779632744665,
+            "endTime": 1779632788102
+        },
+        {
+            "name": "Crunches",
+            "startTime": 1779632453662,
+            "endTime": 1779632504097
+        },
+        {
+            "name": "Crunches",
+            "startTime": 1779632244036,
+            "endTime": 1779632305323
+        },
+        {
+            "name": "Assisted Pull-ups",
+            "startTime": 1779632083564,
+            "endTime": 1779632151010
+        },
+        {
+            "name": "Assisted Pull-ups",
+            "startTime": 1779631891476,
+            "endTime": 1779631925977
+        },
+        {
+            "name": "Dumbbell Bench Press",
+            "startTime": 1779631156097,
+            "endTime": 1779631208914
+        },
+        {
+            "name": "Dumbbell Bench Press",
+            "startTime": 1779630987004,
+            "endTime": 1779631030403
+        },
+        {
+            "name": "Dumbbell Bench Press",
+            "startTime": 1779630834077,
+            "endTime": 1779630876599
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1779630639222,
+            "endTime": 1779630675624
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1779630467086,
+            "endTime": 1779630525461
+        },
+        {
+            "name": "Dumbbell Bicep Curls",
+            "startTime": 1779630399050,
+            "endTime": 1779630419364
+        },
+        {
+            "name": "Stiff-Leg Deadlifts",
+            "startTime": 1779629853636,
+            "endTime": 1779629914766
+        },
+        {
+            "name": "Stiff-Leg Deadlifts",
+            "startTime": 1779630154446,
+            "endTime": 1779630185560
+        },
+        {
+            "name": "Stiff-Leg Deadlifts",
+            "startTime": 1779630085809,
+            "endTime": 1779630130382
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1779629092335,
+            "endTime": 1779629146554
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1779629167578,
+            "endTime": 1779629210337
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1779629256821,
+            "endTime": 1779629339137
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1779629639065,
+            "endTime": 1779629705545
+        },
+        {
+            "name": "Bulgarian Split Squat",
+            "startTime": 1779629434552,
+            "endTime": 1779629487041
+        }
+    ]
+}
