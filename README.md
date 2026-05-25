@@ -60,11 +60,11 @@ Contains the collected workout recordings and analysis scripts.
 
 Important files:
 
-- `/data/recordings/analysis2.ipynb` — final analysis notebook.
-- `/data/recordings/analysis.ipynb` — initial analysis experiments.
-- `/data/recordings/recording.ipynb` — sanity-checking session recordings.
-- `/data/recordings/plot_recording.py` — inspecting a processed session recording saved by `process_and_save_recording.py`.
-- `/data/recordings/smoothing.py` and `/data/recordings/smoothing2.py` — inspecting classification signal plots and post-processing behavior.
+- `/data/recordings/analysis2.ipynb` final analysis notebook.
+- `/data/recordings/analysis.ipynb` initial analysis experiments.
+- `/data/recordings/recording.ipynb` sanity-checking session recordings.
+- `/data/recordings/plot_recording.py` inspecting a processed session recording saved by `process_and_save_recording.py`.
+- `/data/recordings/smoothing.py` and `/data/recordings/smoothing2.py` inspecting classification signal plots and post-processing behavior.
 
 ### `/models`
 
