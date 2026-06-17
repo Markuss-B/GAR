@@ -38,6 +38,12 @@ Phone application for managing recording sessions and annotating exercise start/
 
 <https://github.com/Markuss-B/GAR-Annotator>
 
+### Initial ESP32 prototype
+
+Initially developed as an ESP32/TensorFlow Lite Micro prototype with MPU6050 IMU data reading and BLE communication, later abandoned to develop the WearOS app for more practical real-time data collection and exercise recognition.
+
+<https://github.com/Markuss-B/GAR_ESP_tflite_mpu6050_ble>
+
 ---
 
 ## Repository Structure
